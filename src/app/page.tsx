@@ -1,20 +1,16 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 export default function Home() {
   const router = useRouter();
 
-  const redirectToYouTube = () => {
-    // Redirect to the YouTube URL
+  useEffect(() => {
+    // Redirect to the YouTube URL when the component mounts
     router.push('https://www.youtube.com/');
-  };
+  }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
 
-  return (
-    <div>
-      {/* Your other components and content here */}
+  // Render nothing or your main content, as the redirection will happen automatically
 
-      {/* Add an element (e.g., a button) that triggers the redirect */}
-      <button onClick={redirectToYouTube}>Go to YouTube</button>
-    </div>
-  );
+  return null;
 }
